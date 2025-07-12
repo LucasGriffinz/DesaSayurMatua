@@ -23,7 +23,8 @@
         .bg-brand-light { background-color: #fdfaf6; }
         .accent-color { color: #CB997E; }
         .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1920x1080/3A6B35/FFFFFF?text=Pemandangan+Desa');
+            /* GAMBAR LATAR TELAH DIPERBAIKI - Gunakan foto asli desa untuk hasil terbaik */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1932&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
@@ -82,7 +83,7 @@
         </div>
     </nav>
 
-    <header class="hero-bg h-screen flex items-center justify-center text-white text-center -mt-[68px] pt-[68px]">
+    <header class="hero-bg h-screen grid place-items-center text-white text-center -mt-[68px] pt-[68px]">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Selamat Datang di Dewi Tani Horas</h1>
             <p class="text-lg md:text-2xl mb-8">Temukan perpaduan agroteknologi, kearifan lokal, dan keindahan alam di Desa Sayur Matua.</p>
@@ -322,12 +323,8 @@
             interactiveButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const contentId = button.dataset.content;
-
-                    // Hide all panels and deactivate all buttons
                     contentPanels.forEach(panel => panel.classList.add('hidden'));
                     interactiveButtons.forEach(btn => btn.classList.remove('active'));
-
-                    // Show the target panel and activate the clicked button
                     document.getElementById(`content-${contentId}`).classList.remove('hidden');
                     button.classList.add('active');
                 });
@@ -340,7 +337,6 @@
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
-                    // Close mobile menu on link click
                     if (!mobileMenu.classList.contains('hidden')) {
                          mobileMenu.classList.add('hidden');
                     }
@@ -355,11 +351,8 @@
                     labels: ['Perkebunan Kelapa Sawit', 'Sawah Padi'],
                     datasets: [{
                         label: 'Penggunaan Lahan',
-                        data: [70, 30], // Data persentase perkiraan berdasarkan laporan
-                        backgroundColor: [
-                            '#3A6B35', // brand-green
-                            '#CB997E'  // accent-color
-                        ],
+                        data: [70, 30],
+                        backgroundColor: ['#3A6B35', '#CB997E'],
                         borderColor: '#fdfaf6',
                         borderWidth: 4
                     }]
